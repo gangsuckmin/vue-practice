@@ -1,4 +1,3 @@
-<!-- ChildComponent.vue -->
 <template>
   <div>
     <p>{{ message }}</p>
@@ -7,8 +6,17 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ['message'] // 부모로부터 속성을 받는다.
-};
+<script setup lang='ts'>
+import { defineProps, defineEmits, defineOptions } from 'vue'
+
+defineOptions({ name: 'ChildComponent' })
+
+const props = defineProps({
+  message: {
+    type: String,
+    required: true
+  }
+})
+
+const emit = defineEmits(['custom-event'])
 </script>

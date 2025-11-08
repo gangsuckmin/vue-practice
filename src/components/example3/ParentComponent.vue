@@ -1,4 +1,3 @@
-<!-- ParentComponent.vue -->
 <template>
   <div>
     <ChildComponent
@@ -7,23 +6,16 @@
   </div>
 </template>
 
-<script>
-import ChildComponent from './ChildComponent.vue';
+<script setup lang='ts'>
+import { ref, defineOptions } from 'vue'
+import ChildComponent from './ChildComponent.vue'
 
-export default {
-  name: "E05ParentComponent",
-  data() {
-    return {
-      parentMessage: 'Hello from parent'
-    };
-  },
-  methods: {
-    handleEvent(data) {
-      console.log(data);
-    }
-  },
-  components: {
-    ChildComponent
-  }
-};
+defineOptions({ name: 'ParentComponent' })
+
+const parentMessage = ref('Hello from parent')
+
+const handleEvent = (data: string) =>
+{
+  console.log(data)
+}
 </script>

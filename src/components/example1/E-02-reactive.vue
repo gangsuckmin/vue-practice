@@ -2,33 +2,23 @@
   <div>{{ fullName }}</div>
 </template>
 
-<script>
-export default
+<script setup lang='ts'>
+import { ref, computed, onMounted, defineOptions } from 'vue'
+
+defineOptions({ name: 'E02Reactive' })
+
+const firstName = ref('Seokmin')
+const lastName = ref('Kang')
+
+const fullName = computed(() => `${firstName.value} ${lastName.value}`)
+
+onMounted(() =>
 {
-  name: "E02Reactive",
+  console.log('mounted')
 
-  data()
+  setTimeout(() =>
   {
-    return {
-      firstName: "Seokmin",
-      lastName: "Kang"
-    };
-  },
-
-  mounted()
-  {
-    console.log('mounted');
-
-    setTimeout(() => {
-      this.lastName = "Gang";
-    }, 2000);
-  },
-
-  computed: {
-    fullName()
-    {
-      return this.firstName + " " + this.lastName;
-    }
-  }
-};
+    lastName.value = 'Gang'
+  }, 2000)
+})
 </script>

@@ -5,7 +5,7 @@
 <script setup lang='ts'>
 import { ref, defineOptions } from 'vue'
 
-defineOptions({name: 'E01Instance'})
+defineOptions({ name: 'E01Instance' })
 
 const name = 'Seokmin'
 const message = ref<string>(name)

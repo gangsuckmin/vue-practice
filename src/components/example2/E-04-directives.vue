@@ -12,7 +12,9 @@
       <div :style="{ visibility: isVisible ? 'visible' : 'hidden' }">
         This is visible 2
       </div>
+
       <div v-show="isVisible">This is visible 3</div>
+
       <button @click="isVisible = !isVisible">Toggle Visibility</button>
     </div>
 
@@ -26,7 +28,7 @@
       <div id="div4" v-else-if="count % 5 === 0"> count % 5 === 0</div>
       <div id="div3" v-else>Count is not divisible by 2 or 3 or 5</div>
 
-      <button @click="count++">Increment Count</button>
+      <button @click="increment">Increment Count</button>
     </div>
 
   </div>
@@ -52,31 +54,35 @@
  -->
 </template>
 
-<script>
-export default {
-  name: "E04Directives",
-  data() {
-    return {
-      isVisible: true,
-      items: [
-        { id: 1, name: "Item 1" },
-        { id: 2, name: "Item 2" },
-        { id: 3, name: "Item 3" },
-        { id: 4, name: "Item 4" },
-      ],
-      count: 0,
-    };
-  }
-};
+<script setup lang='ts'>
+import { ref, defineOptions } from 'vue'
+
+defineOptions({ name: 'E04Directives' })
+
+const isVisible = ref(true)
+const count = ref(0)
+
+
+const items = ref([
+  { id: 1, name: 'Item 1' },
+  { id: 2, name: 'Item 2' },
+  { id: 3, name: 'Item 3' },
+  { id: 4, name: 'Item 4' },
+])
+
+const increment = () =>
+{
+  count.value++
+}
 </script>
 
 <style scoped>
-.container {
+.container
+{
   display: grid;
   width: 300px;
   margin: 0 auto;
   padding: 20px;
   grid-gap: 20px;
-
 }
 </style>

@@ -27,11 +27,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # 변경 요약
 
 ## E-01-instance.vue
-script setup로 전환\n
-lang='ts'로 TypeScript 적용\n
-defineOptions()로 컴포넌트 이름 지정\n
-ref()로 반응형 상태 정의\n
-return 제거\n
+script setup로 전환  
+lang='ts'로 TypeScript 적용  
+defineOptions()로 컴포넌트 이름 지정  
+ref()로 반응형 상태 정의  
+return 제거  
 ![E01Instance Screenshot](./docs/ex1_1.png)
 
 ## 
